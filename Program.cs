@@ -19,4 +19,15 @@ class wizard
         Console.WriteLine($"{Name} attacked {enemyObj.Name}");
         Console.WriteLine($"{enemyObj.Name} has {enemyObj.Energy} left");
     }
+
+    public void heal()
+    {
+        Random rand = new Random();
+        int heal = rand.Next( 0, 5 );
+        if (Energy <= 95){
+            Energy += heal;
+            Console.WriteLine($"{Name} has healed! \n Current energy: {Energy}");
+
+        }
+    }
 }
