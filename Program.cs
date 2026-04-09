@@ -1,10 +1,14 @@
 ﻿
 wizard wizardA = new wizard("Ralsei", 10);
 wizard wizardB = new wizard("John shaman",10);
+while (wizardA.Energy)
+{
+
+}
 class wizard
 {
     string Name;
-    int Energy;
+    public int Energy;
     int Damage;
     public wizard(string name, int damage)
     {
@@ -23,11 +27,20 @@ class wizard
     public void heal()
     {
         Random rand = new Random();
-        int heal = rand.Next( 0, 5 );
-        if (Energy <= 95){
+        int heal = rand.Next( 1, 5 );
+        Energy += heal;
+        if (Energy >= 100){
+            Console.WriteLine("You cant heal anymore silly!");
+        }
+        else
+        {
             Energy += heal;
-            Console.WriteLine($"{Name} has healed! \n Current energy: {Energy}");
+            if (Energy > 100)
+            {
+                Energy = 100;
+            }
 
+            Console.WriteLine($"{Name} has healed!\nCurrent energy: {Energy}");
         }
     }
 }
